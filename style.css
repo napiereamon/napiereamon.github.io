@@ -169,10 +169,10 @@ ul { list-style: none; }
     pointer-events: none;
 }
 .carousel-slide.active      { opacity: 1; transform: translateX(0) rotateY(0deg); pointer-events: auto; }
-.carousel-slide.exit-left   { opacity: 0; transform: translateX(-60%) rotateY(-25deg) scale(0.85); }
-.carousel-slide.exit-right  { opacity: 0; transform: translateX(60%)  rotateY(25deg)  scale(0.85); }
-.carousel-slide.enter-left  {             transform: translateX(-60%) rotateY(-25deg) scale(0.85); }
-.carousel-slide.enter-right {             transform: translateX(60%)  rotateY(25deg)  scale(0.85); }
+.carousel-slide.exit-left   { opacity: 0; transform: translateX(-60%) rotateY(-75deg) scale(0.85); }
+.carousel-slide.exit-right  { opacity: 0; transform: translateX(60%)  rotateY(75deg)  scale(0.85); }
+.carousel-slide.enter-left  {             transform: translateX(-60%) rotateY(-75deg) scale(0.85); }
+.carousel-slide.enter-right {             transform: translateX(60%)  rotateY(75deg)  scale(0.85); }
 
 .project-img {
     width: 100%; height: 100%;
@@ -237,6 +237,16 @@ ul { list-style: none; }
 
 .project-drop { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
 .project-drop.open { max-height: 300px; }
+.project-drop .habit-item { margin-top: 16px; }
+.project-repo-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-weight: 500;
+    transition: opacity var(--transition);
+}
+.project-repo-link:hover { opacity: 0.75; }
 
 /* ── Habit/Project List ───────────────────────────────────────────────────── */
 .habit-list { display: flex; flex-direction: column; gap: 10px; }

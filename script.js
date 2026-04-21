@@ -153,18 +153,24 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 // Highlight active nav link on scroll
-const sections = document.querySelectorAll('section, [id]');
 const navLinks = document.querySelectorAll('.nav-link');
+const navHeight = document.querySelector('.navbar').offsetHeight;
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const id = entry.target.id;
-            navLinks.forEach(link => {
-                link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-            });
-        }
+function updateActiveNav() {
+    let activeId = null;
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 50) {
+        activeId = 'contact';
+    } else {
+        const scrollY = window.scrollY + navHeight + 24;
+        ['about', 'projects', 'skills', 'contact'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el && el.getBoundingClientRect().top + window.scrollY <= scrollY) activeId = id;
+        });
+    }
+    navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
     });
-}, { rootMargin: '-40% 0px -55% 0px' });
+}
 
-document.querySelectorAll('[id]').forEach(el => observer.observe(el));
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();

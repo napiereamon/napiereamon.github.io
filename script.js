@@ -34,6 +34,62 @@ document.querySelector('a[href="#projects"]')?.addEventListener('click', () => {
     }
 });
 
+// Project carousel
+const carousel = document.querySelector('.project-carousel');
+if (carousel) {
+    const slides  = carousel.querySelectorAll('.carousel-slide');
+    const drops   = carousel.querySelectorAll('.project-drop');
+    const dots    = carousel.querySelectorAll('.dot');
+    let current = 0;
+    let dropOpen = false;
+    let animating = false;
+
+    function goTo(index, dir) {
+        if (animating) return;
+        const next = (index + slides.length) % slides.length;
+        if (next === current) return;
+        animating = true;
+
+        dropOpen = false;
+        drops.forEach(d => d.classList.remove('open'));
+
+        const outSlide = slides[current];
+        const inSlide  = slides[next];
+
+        outSlide.classList.add(dir > 0 ? 'exit-left' : 'exit-right');
+
+        inSlide.style.transition = 'none';
+        inSlide.classList.add(dir > 0 ? 'enter-right' : 'enter-left');
+
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            inSlide.style.transition = '';
+            inSlide.classList.remove('enter-right', 'enter-left');
+            inSlide.classList.add('active');
+            outSlide.classList.remove('active');
+        }));
+
+        outSlide.addEventListener('transitionend', () => {
+            outSlide.classList.remove('exit-left', 'exit-right');
+            animating = false;
+        }, { once: true });
+
+        current = next;
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    carousel.querySelector('.carousel-prev').addEventListener('click', () => goTo(current - 1, -1));
+    carousel.querySelector('.carousel-next').addEventListener('click', () => goTo(current + 1,  1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i, i > current ? 1 : -1)));
+
+    carousel.querySelectorAll('.project-img').forEach((img, i) => {
+        img.addEventListener('click', () => {
+            if (i !== current) return;
+            dropOpen = !dropOpen;
+            drops[current].classList.toggle('open', dropOpen);
+        });
+    });
+}
+
 // Slot machine animation for stat cards
 document.querySelectorAll('.stat-value').forEach((el, index) => {
     const match = el.textContent.match(/^(\d+)(.*)/);

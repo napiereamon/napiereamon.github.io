@@ -89,51 +89,74 @@
             <span class="badge">3 projects</span>
         </div>
 
-        <ul class="habit-list">
+        <div class="project-carousel">
+            <div class="carousel-image-wrap">
+                <div class="carousel-viewport">
+                    <div class="carousel-slide active">
+                        <div class="project-img" style="background: linear-gradient(135deg, #3b3bca, #6366f1);">
+                            ⚡<span class="project-img-label">HabitFlow</span>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="project-img" style="background: linear-gradient(135deg, #059669, #10b981);">
+                            🌐<span class="project-img-label">Portfolio Website</span>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="project-img" style="background: linear-gradient(135deg, #b45309, #f59e0b);">
+                            🤖<span class="project-img-label">AI Evaluation</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+                <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+                <div class="carousel-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
 
-            <li class="habit-item project-item">
-                <span class="habit-check" style="--habit-color: #6366f1;">
-                    <span class="check-icon">⚡</span>
-                </span>
-                <div class="habit-info">
-                    <span class="habit-name">HabitFlow</span>
-                    <span class="streak-tag">PHP · MySQL · JavaScript</span>
-                    <p class="project-desc">A full-stack habit tracker with streaks, calendar view, CSV export, and user auth. Built with XAMPP demonstrating AI-assisted development.</p>
+            <div class="project-drop">
+                <div class="habit-item">
+                    <span class="habit-check" style="--habit-color: #6366f1;"><span class="check-icon">⚡</span></span>
+                    <div class="habit-info">
+                        <span class="habit-name">HabitFlow</span>
+                        <span class="streak-tag">PHP · MySQL · JavaScript</span>
+                        <p class="project-desc">A full-stack habit tracker with streaks, calendar view, CSV export, and user auth. Built with XAMPP demonstrating AI-assisted development.</p>
+                    </div>
+                    <div class="habit-right">
+                        <span class="streak-pill" style="border-color: #6366f1;">2026</span>
+                    </div>
                 </div>
-                <div class="habit-right">
-                    <span class="streak-pill" style="border-color: #6366f1;">2026</span>
+            </div>
+            <div class="project-drop">
+                <div class="habit-item">
+                    <span class="habit-check" style="--habit-color: #10b981;"><span class="check-icon">🌐</span></span>
+                    <div class="habit-info">
+                        <span class="habit-name">Portfolio Website</span>
+                        <span class="streak-tag">HTML · CSS · JavaScript</span>
+                        <p class="project-desc">This site. Hand-built to showcase my work with a focus on clean structure, performance, and a cohesive visual identity.</p>
+                    </div>
+                    <div class="habit-right">
+                        <span class="streak-pill" style="border-color: #10b981;">2026</span>
+                    </div>
                 </div>
-            </li>
-
-            <li class="habit-item project-item">
-                <span class="habit-check" style="--habit-color: #10b981;">
-                    <span class="check-icon">🌐</span>
-                </span>
-                <div class="habit-info">
-                    <span class="habit-name">Portfolio Website</span>
-                    <span class="streak-tag">HTML · CSS · JavaScript</span>
-                    <p class="project-desc">This site. Hand-built to showcase my work with a focus on clean structure, performance, and a cohesive visual identity.</p>
+            </div>
+            <div class="project-drop">
+                <div class="habit-item">
+                    <span class="habit-check" style="--habit-color: #f59e0b;"><span class="check-icon">🤖</span></span>
+                    <div class="habit-info">
+                        <span class="habit-name">AI Response Evaluation</span>
+                        <span class="streak-tag">Code Review · Evaluation · AI</span>
+                        <p class="project-desc">Freelance work assessing AI model outputs across correctness, clarity, and modularity. Sharpened my code-review eye considerably.</p>
+                    </div>
+                    <div class="habit-right">
+                        <span class="streak-pill" style="border-color: #f59e0b;">2025–26</span>
+                    </div>
                 </div>
-                <div class="habit-right">
-                    <span class="streak-pill" style="border-color: #10b981;">2026</span>
-                </div>
-            </li>
-
-            <li class="habit-item project-item">
-                <span class="habit-check" style="--habit-color: #f59e0b;">
-                    <span class="check-icon">🤖</span>
-                </span>
-                <div class="habit-info">
-                    <span class="habit-name">AI Response Evaluation</span>
-                    <span class="streak-tag">Code Review · Evaluation · AI</span>
-                    <p class="project-desc">Freelance work assessing AI model outputs across correctness, clarity, and modularity. Sharpened my code-review eye considerably.</p>
-                </div>
-                <div class="habit-right">
-                    <span class="streak-pill" style="border-color: #f59e0b;">2025–26</span>
-                </div>
-            </li>
-
-        </ul>
+            </div>
+        </div>
     </div>
 
     <!-- Skills -->

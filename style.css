@@ -139,7 +139,9 @@ ul { list-style: none; }
     margin-bottom: 0;
 }
 .stat-icon  { font-size: 1.6rem; }
-.stat-value { font-size: 1.7rem; font-weight: 700; color: var(--text); }
+.stat-value { font-size: 1.7rem; font-weight: 700; color: var(--text); overflow: hidden; }
+.slot-reel  { display: flex; flex-direction: column; }
+.slot-digit { line-height: 1.6; padding: 0; overflow: hidden; }
 .stat-label { font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
 
 /* ── About ────────────────────────────────────────────────────────────────── */
@@ -212,13 +214,14 @@ ul { list-style: none; }
     padding: 4px 12px;
     font-size: 0.82rem;
     font-weight: 600;
+    margin-bottom: 16px;
 }
 
 /* ── Skills ───────────────────────────────────────────────────────────────── */
 .skill-section { margin-bottom: 20px; }
 .skill-section:last-child { margin-bottom: 0; }
 .skill-heading {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -238,7 +241,13 @@ ul { list-style: none; }
     border-radius: 999px;
     font-size: 0.85rem;
     font-weight: 500;
-    transition: all var(--transition);
+    transition: all var(--transition), opacity 0.35s ease, transform 0.35s ease;
+    opacity: 0;
+    transform: translateY(8px);
+}
+.skill-tag.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 .skill-tag:hover {
     border-color: var(--accent);
@@ -264,6 +273,8 @@ ul { list-style: none; }
 .btn:active  { transform: translateY(0); }
 .btn-primary { background: var(--accent); color: #fff; }
 .btn-ghost   { background: transparent; color: var(--text-muted); border: 1px solid var(--card-border); }
+.btn-ghost.btn-hover-primary:hover { background: var(--accent); color: #fff; border-color: var(--accent); opacity: 1; }
+.btn-ghost.btn-hover-skill:hover   { background: var(--accent-glow); color: var(--accent); border-color: var(--accent); opacity: 1; }
 
 /* ── Contact Card ─────────────────────────────────────────────────────────── */
 .contact-card {
